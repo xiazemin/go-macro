@@ -22,29 +22,23 @@ consul members
 
 2 安装micro：微服务管理工具
 
-      micro是以go-micro框架为核心的微服务管理工具，通过它可以方便查看go-micro服务情况。
+```
+  micro是以go-micro框架为核心的微服务管理工具，通过它可以方便查看go-micro服务情况。
 
 
 
-     在$GOPATH目录下，执行
-
-
+ 在$GOPATH目录下，执行
+```
 
 go get github.com/micro/micro
-
-
 
 该命令会在bin目录（$GOBIN）下生成micro\(.exe\)工具
 
 micro命令行工具可以提供诸如服务列表查看、服务详情查看、调用服务接口等功能。
 
-
-
 3 安装goprotobuf相关工具：GRPC相关工具
 
 protoc：Protobuf（Protocol Buffers - Google's data interchange format）编译器：
-
-
 
 windows下直接下载 相关win的zip压缩文件（内含protoc.exe）
 
@@ -56,45 +50,35 @@ protoc-gen-micro（Protobuf code generation for micro）：在$GOPATH目录下�
 
 goprotobuf编译参数：
 
-
-
 -I参数：指定import路径，可以指定多个-I参数，编译时按照顺序查找，不指定时默认查找当前目录
 
 --go\_out：Golang编译支持，支持以下参数
 
+* \`plugins=plugin1+plugin2\`：指定插件，支持grpc/micro，即：plugins=grpc+micro
 
+* \`M\`参数：指定导入的.proto文件路径编译后对应的goalng包名（不指定默认.proto文件中import语句路径）
 
-- \`plugins=plugin1+plugin2\`：指定插件，支持grpc/micro，即：plugins=grpc+micro
+* \`import\_prefix=xxx\`：为所有import路径添加前缀，主要用于编译子目录内的多个proto文件
 
-- \`M\`参数：指定导入的.proto文件路径编译后对应的goalng包名（不指定默认.proto文件中import语句路径）
-
-- \`import\_prefix=xxx\`：为所有import路径添加前缀，主要用于编译子目录内的多个proto文件
-
-- \`import\_path=foo/bar\`：指定未声明package或go\_package的文件的包名，最右边的斜线前的字符会被忽略
+* \`import\_path=foo/bar\`：指定未声明package或go\_package的文件的包名，最右边的斜线前的字符会被忽略
 
 4 编写一个简单的Hello服务
 
 至此，go-micro框架的编程环境已基本搭建好，接下来就是写代码了。
 
-
-
 下面实现一个Hello服务：它接收一个字符串类型参数请求，返回一个字符串问候语：Hello 『参数值』。
 
 1）定义API
-
-
 
 创建helloworld/helloworld.proto文件：
 
 使用protobuf文件来定义服务API接口
 
-
-
-// The greeting service definition. 
+// The greeting service definition.
 
 service Hello {
 
-  rpc SayHello \(HelloRequest\) returns \(HelloReply\) {}
+rpc SayHello \(HelloRequest\) returns \(HelloReply\) {}
 
 }
 
@@ -102,9 +86,7 @@ service Hello {
 
 message HelloRequest {
 
-  string name = 1;
-
- 
+string name = 1;
 
 }
 
@@ -112,169 +94,147 @@ message HelloRequest {
 
 message HelloReply {
 
-  string message = 1;
+string message = 1;
 
 }
 
 执行protoc命令，生成当前pb文件的go实现：
 
-
-
 protoc  --micro\_out=. --go\_out=. ./helloworld/helloworld.proto
 
 生成文件如下：
 
-
-
- 
-
-
-
 2）创建server
-
-
 
 创建server/main.go文件：
 
-
-
 package main
-
- 
 
 import \(
 
-	proto "awesomeProject/helloworld"
+```
+proto "awesomeProject/helloworld"
 
-	"context"
+"context"
 
-	"fmt"
+"fmt"
 
-	"github.com/micro/go-micro"
+"github.com/micro/go-micro"
 
-	"github.com/micro/go-micro/registry"
+"github.com/micro/go-micro/registry"
 
-	"github.com/micro/go-micro/registry/consul"
+"github.com/micro/go-micro/registry/consul"
+```
 
 \)
-
- 
 
 type Server struct {
 
 }
 
- 
-
 func \(s \*Server\) SayHello\(ctx context.Context, in \*proto.HelloRequest, res \*proto.HelloReply\) error {
 
-	fmt.Printf\("%s", in.Name\)
+```
+fmt.Printf\("%s", in.Name\)
 
-	res.Message="I am a server"
+res.Message="I am a server"
 
-	return nil
+return nil
+```
 
 }
 
- 
-
 func main\(\) {
 
-	reg:=consul.NewRegistry\(func\(options \*registry.Options\) {
+```
+reg:=consul.NewRegistry\(func\(options \*registry.Options\) {
 
-		options.Addrs=\[\]string{"127.0.0.1:8500",}
+    options.Addrs=\[\]string{"127.0.0.1:8500",}
 
-	}\)
+}\)
 
-	service := micro.NewService\(
+service := micro.NewService\(
 
-		micro.Registry\(reg\),
+    micro.Registry\(reg\),
 
-		micro.Name\("helloworldServer001"\), // 服务名称
+    micro.Name\("helloworldServer001"\), // 服务名称
 
-	\)
+\)
 
-	service.Init\(\)
+service.Init\(\)
 
-	proto.RegisterHelloHandler\(service.Server\(\), new\(Server\)\)
+proto.RegisterHelloHandler\(service.Server\(\), new\(Server\)\)
 
-	if err := service.Run\(\); err != nil {
+if err := service.Run\(\); err != nil {
 
-		fmt.Println\(err\)
+    fmt.Println\(err\)
 
-	}
-
- 
+}
+```
 
 }
 
 3\)模拟client
 
-
-
 创建client/main.go文件：
-
-
 
 package main
 
- 
-
 import \(
 
-	proto "awesomeProject/helloworld"
+```
+proto "awesomeProject/helloworld"
 
-	"context"
+"context"
 
-	"fmt"
+"fmt"
 
-	"github.com/micro/go-micro"
+"github.com/micro/go-micro"
 
-	"github.com/micro/go-micro/registry"
+"github.com/micro/go-micro/registry"
 
-	"github.com/micro/go-micro/registry/consul"
+"github.com/micro/go-micro/registry/consul"
+```
 
 \)
 
- 
-
 const ADDRESS = "localhost:50051"
-
- 
 
 func main\(\) {
 
-	reg:=consul.NewRegistry\(func\(options \*registry.Options\) {
+```
+reg:=consul.NewRegistry\(func\(options \*registry.Options\) {
 
-		options.Addrs=\[\]string{
+    options.Addrs=\[\]string{
 
-			"127.0.0.1:8500",
+        "127.0.0.1:8500",
 
-		}
+    }
 
-	}\)
+}\)
 
-	service := micro.NewService\(micro.Registry\(reg\),micro.Name\("hello.client"\)\)
+service := micro.NewService\(micro.Registry\(reg\),micro.Name\("hello.client"\)\)
 
-	service.Init\(\)
+service.Init\(\)
 
-	helloService := proto.NewHelloService\("helloworldServer001", service.Client\(\)\)
+helloService := proto.NewHelloService\("helloworldServer001", service.Client\(\)\)
 
-	res, err := helloService.SayHello\(context.TODO\(\), &proto.HelloRequest{Name: "hellow ，I am Client--001"}\)
+res, err := helloService.SayHello\(context.TODO\(\), &proto.HelloRequest{Name: "hellow ，I am Client--001"}\)
 
-	if err != nil {
+if err != nil {
 
-		fmt.Println\(err\)
+    fmt.Println\(err\)
 
-	}
+}
 
-	fmt.Println\("-----&gt;"+res.GetMessage\(\)\)
+fmt.Println\("-----&gt;"+res.GetMessage\(\)\)
+```
 
 }
 
 5 运行Hello服务
 
-启动consul 
+启动consul
 
 执行go run server/main.go命令，启动服务：
 
@@ -286,17 +246,9 @@ func main\(\) {
 
 2019/07/04 16:06:09 Registry \[consul\] Registering node: helloworldServer001-4ae1c14d-598f-4542-9fb3-cb295d9f00e6
 
- 
+1. 通过浏览器输入再次输入：[http://localhost:8500](http://localhost:8500), 查看当前已有服务：
 
-  3. 通过浏览器输入再次输入：http://localhost:8500, 查看当前已有服务：
-
-
-
-
-
-
-
- 4. 请求服务  执行 go run client/main.go
+1. 请求服务  执行 go run client/main.go
 
 
 
