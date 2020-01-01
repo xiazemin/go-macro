@@ -29,3 +29,11 @@ go-micro的组件包括：
 
 所有以上组件功能共同构成一个go-micro微服务。
 
+### 2.2 微服务之间通信 {#item-2-2}
+
+两个微服务之间的通信是基于C/S模型，即服务发请求方充当Client，服务接收方充当Server。  
+其通信过程大致如下图：  
+![](https://segmentfault.com/img/bVblToQ?w=1017&h=438 "clipboard.png")
+
+上图大致描绘了go-micro服务内各组件的职责与交互。
+
