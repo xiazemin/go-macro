@@ -39,7 +39,7 @@
   * [micro cli](chapter6/section1.md)
 * [micro bot](chapter7.md)
 * [新建模板](chapter8.md)
-* [chapter9](chapter9.md)
+* [Go API 处理器](chapter9.md)
 * [chapter10](chapter10.md)
 * [chapter11](chapter11.md)
 * [chapter12](chapter12.md)
