@@ -40,7 +40,7 @@
 * [micro bot](chapter7.md)
 * [新建模板](chapter8.md)
 * [Go API 处理器](chapter9.md)
-* [chapter10](chapter10.md)
+* [放弃 go-micro 框架](chapter10.md)
 * [chapter11](chapter11.md)
 * [chapter12](chapter12.md)
 * [chapter13](chapter13.md)
