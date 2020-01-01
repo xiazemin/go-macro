@@ -1,12 +1,8 @@
 # API
 
-
-
 API参考了[API网关模式](http://microservices.io/patterns/apigateway.html)为服务提供了一个单一的公共入口。基于服务发现，使得micro api可以提供具备http及动态路由的服务。
 
-![](//upload-images.jianshu.io/upload_images/7339866-f67ab9cbd8da9857.png?imageMogr2/auto-orient/strip|imageView2/2/w/741/format/webp)
-
-image
+![](/assets/import1221.png)
 
 ## 概览
 
@@ -17,18 +13,7 @@ Micro的API基于HTTP协议。请求的API接口通过HTTP协议访问，并且�
 ## 安装
 
 ```
-go 
-get
--
-u github
-.
-com
-/
-micro
-/
-micro
-
-
+go get -u github.com/micro/micro
 ```
 
 ## 运行
@@ -36,8 +21,6 @@ micro
 ```
 # 默认的端口是8080
 micro api
-
-
 ```
 
 ## 使用ACME协议
@@ -46,8 +29,6 @@ ACME（ Automatic Certificate Management Environment）是由**Let’s Encrypt**
 
 ```
 MICRO_ENABLE_ACME=true micro api
-
-
 ```
 
 可以选择是否配置白名单
@@ -56,8 +37,6 @@ MICRO_ENABLE_ACME=true micro api
 MICRO_ENABLE_ACME=true \
 MICRO_ACME_HOSTS=example.com,api.example.com \
 micro api
-
-
 ```
 
 ## 设置TLS证书
@@ -88,8 +67,6 @@ to
 /
 key \
 micro api
-
-
 ```
 
 ## 设置命名空间
@@ -100,8 +77,6 @@ API默认的命名空间是`go.micro.api`，当然，也可以修改：
 
 ```
 MICRO_NAMESPACE=com.example.api micro api
-
-
 ```
 
 ## 示例
@@ -158,8 +133,6 @@ go
 # 启动micro api
 
 micro api
-
-
 ```
 
 ### 查询
@@ -168,8 +141,6 @@ micro api
 
 ```
 curl "http://localhost:8080/greeter/say/hello?name=John"
-
-
 ```
 
 HTTP请求的路径`/greeter/say/hello`会被路由到服务`go.micro.api.greeter`的方法`Say.Hello`上。
@@ -182,12 +153,12 @@ curl
 d 
 'service=go.micro.srv.greeter
 ' \
-     
+
 -
 d 
 'method=Say.Hello
 ' \
-     
+
 -
 d 
 'request={
@@ -205,8 +176,6 @@ localhost
 8080
 /
 rpc
-
-
 ```
 
 使用JSON的方式执行同一请求：
@@ -219,7 +188,7 @@ H
  application
 /
 json' \
-     
+
 -
 d 
 '{
@@ -249,8 +218,6 @@ localhost
 8080
 /
 rpc
-
-
 ```
 
 ## API
@@ -260,8 +227,6 @@ micro api提供下面类型的http api接口
 ```
 - /[service]/[method]   # HTTP路径式的会被动态地定位到服务上
 - /rpc          # 显式使用后台服务与方法名直接调用
-
-
 ```
 
 请看下面的例子
@@ -275,15 +240,15 @@ Handler负责持有并管理HTTP请求路由。
 API有如下方法可以配置请求handler：
 
 * [`api`](https://micro.mu/docs/api_cn.html#api-handler)
-   - 处理http请求，通过RPC来完全控制http的请求/响应。
+  * 处理http请求，通过RPC来完全控制http的请求/响应。
 * [`rpc`](https://micro.mu/docs/api_cn.html#rpc-handler)
-   - 处理json及protobuf格式的POST请求，并转向RPC。
+  * 处理json及protobuf格式的POST请求，并转向RPC。
 * [`proxy`](https://micro.mu/docs/api_cn.html#proxy-handler)
-   - 处理http请求并转向反向代理。
+  * 处理http请求并转向反向代理。
 * [`event`](https://micro.mu/docs/api_cn.html#event-handler)
-   - 处理任意的http请求并向消息总线分发消息。
+  * 处理任意的http请求并向消息总线分发消息。
 * [`web`](https://micro.mu/docs/api_cn.html#web-handler)
-   - 包含web socket的http反向代理。
+  * 包含web socket的http反向代理。
 
 通过[`/rpc`](https://micro.mu/docs/api_cn.html#rpc-endpoint)入口可以绕开handler处理器。
 
@@ -385,13 +350,13 @@ Web处理器是，它是内置在服务发现中的HTTP反向代理服务，支�
 
 * 请求参数
   * `service`
-     - 指定服务名
+    * 指定服务名
   * `method`
-     - 指定方法名
+    * 指定方法名
   * `request`
-     - 请求body体
+    * 请求body体
   * `address`
-     - 可选，指定特定的目标主机地址
+    * 可选，指定特定的目标主机地址
 
 示例：
 
@@ -401,12 +366,12 @@ curl
 d 
 'service=go.micro.srv.greeter
 ' \
-     
+
 -
 d 
 'method=Say.Hello
 ' \
-     
+
 -
 d 
 'request={
@@ -424,8 +389,6 @@ localhost
 8080
 /
 rpc
-
-
 ```
 
 更多信息查看可运行的示例：[github.com/micro/examples/api](https://github.com/micro/examples/tree/master/api)
@@ -472,9 +435,6 @@ URL会被解析成以下几部分：
 | /foo/bar | go.micro.api.foo | /foo/bar |
 | /greeter | go.micro.api.greeter | /greeter |
 | /greeter/:name | go.micro.api.greeter | /greeter/:name |
-
-  
-
 
 
 
