@@ -6,7 +6,7 @@
   * [运行Hello服务](chapter1/section2.md)
   * [搭建 go-micro环境](chapter1/section3.md)
   * [创建微服务](chapter1/section4.md)
-  * [section5](chapter1/section5.md)
+  * [go-micro依赖](chapter1/section5.md)
   * [section6](chapter1/section6.md)
   * [section7](chapter1/section7.md)
 * [chapter2](chapter2.md)
