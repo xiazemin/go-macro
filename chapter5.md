@@ -44,28 +44,9 @@ micro api
 API服务支持TLS证书
 
 ```
-MICRO_ENABLE_TLS
-=
-true
- \
-
-MICRO_TLS_CERT_FILE
-=
-/
-path
-/
-to
-/
-cert \
-
-MICRO_TLS_KEY_FILE
-=
-/
-path
-/
-to
-/
-key \
+MICRO_ENABLE_TLS=true \
+MICRO_TLS_CERT_FILE=/path/to/cert \
+MICRO_TLS_KEY_FILE=/path/to/key \
 micro api
 ```
 
