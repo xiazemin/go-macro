@@ -79,40 +79,15 @@ MICRO_NAMESPACE=com.example.api micro api
 
 ```
 # 下载示例
+git clone https://github.com/micro/examples
 
-git 
-clone
- https
-:
-//github.com/micro/examples
 # 运行服务
-
-go run examples
-/
-greeter
-/
-srv
-/
-main
-.
-go
-
+go run examples/greeter/srv/main.go
 
 # 运行api
-
-go run examples
-/
-greeter
-/
-api
-/
-api
-.
-go
-
+go run examples/greeter/api/api.go
 
 # 启动micro api
-
 micro api
 ```
 
