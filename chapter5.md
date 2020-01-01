@@ -104,76 +104,18 @@ HTTP请求的路径`/greeter/say/hello`会被路由到服务`go.micro.api.greete
 绕开api服务并且直接通过rpc调用：
 
 ```
-curl 
--
-d 
-'service=go.micro.srv.greeter
-' \
-
--
-d 
-'method=Say.Hello
-' \
-
--
-d 
-'request={
-"name"
-:
-"John"
-}
-' \
-     http
-:
-/
-/
-localhost
-:
-8080
-/
-rpc
+curl -d 'service=go.micro.srv.greeter' \
+     -d 'method=Say.Hello' \
+     -d 'request={"name": "John"}' \
+     http://localhost:8080/rpc
 ```
 
 使用JSON的方式执行同一请求：
 
 ```
-curl 
--
-H 
-'Content-Type:
- application
-/
-json' \
-
--
-d 
-'{
-"service"
-:
-"go.micro.srv.greeter"
-,
-"method"
-:
-"Say.Hello"
-,
-"request"
-:
-{
-"name"
-:
-"John"
-}
-}
-' \
-     http
-:
-/
-/
-localhost
-:
-8080
-/
-rpc
+curl -H 'Content-Type: application/json' \
+     -d '{"service": "go.micro.srv.greeter", "method": "Say.Hello", "request": {"name": "John"}}' \
+     http://localhost:8080/rpc
 ```
 
 ## API
