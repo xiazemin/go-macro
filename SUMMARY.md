@@ -24,7 +24,7 @@
   * [什么是 Micro](chapter3/section2.md)
   * [其它的注册中心](chapter3/section3.md)
   * [API、Web、SRV 服务之间的区别是什么](chapter3/section4.md)
-  * [section5](chapter3/section5.md)
+  * [Micro与Go-Kit比较](chapter3/section5.md)
   * [section6](chapter3/section6.md)
   * [section7](chapter3/section7.md)
 * [chapter4](chapter4.md)
