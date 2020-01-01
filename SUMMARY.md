@@ -38,7 +38,7 @@
 * [Proxy](chapter6.md)
   * [micro cli](chapter6/section1.md)
 * [micro bot](chapter7.md)
-* [chapter8](chapter8.md)
+* [新建模板](chapter8.md)
 * [chapter9](chapter9.md)
 * [chapter10](chapter10.md)
 * [chapter11](chapter11.md)
