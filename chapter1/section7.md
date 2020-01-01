@@ -100,7 +100,7 @@ protoc --proto_path=.:$GOPATH/src --go_out=. --micro_out=. proto/hello/hello.pro
 | | |____hello.pb.micro.go
 ```
 
-问题是新版磨人用etcd服务发现不是consul，会报下面错误
+问题是新版默认用etcd服务发现不是consul，会报下面错误
 
 ```
 /usr/local/go/bin/go run /Users/didi/goLang/src/github.com/golang-study-day/go-micro/exp2/hello/main.go
@@ -118,6 +118,19 @@ src/github.com/coreos/etcd/clientv3/auth.go:156:80: cannot use auth.callOpts (ty
 src/github.com/coreos/etcd/clientv3/auth.go:161:72: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserList
 src/github.com/coreos/etcd/clientv3/auth.go:166:106: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserRevokeRole
 src/github.com/coreos/etcd/clientv3/auth.go:166:106: too many errors
+```
+
+```
+$go get github.com/micro/go-micro/registry/consul
+go get github.com/micro/go-micro/registry/consul: module github.com/micro/go-micro@upgrade found (v1.18.0), but does not contain package github.com/micro/go-micro/registry/consul
+
+原因,没有安装
+https://github.com/micro/go-plugins
+
+$go get github.com/micro/go-plugins
+cd ~/goLang/src/github.com/micro
+
+$git clone https://github.com/micro/go-plugins
 ```
 
 
