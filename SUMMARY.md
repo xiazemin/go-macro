@@ -28,7 +28,7 @@
   * [微服务工具库：Micro](chapter3/section6.md)
   * [特性](chapter3/section7.md)
 * [ GRPC 网关](chapter4.md)
-  * [section1](chapter4/section1.md)
+  * [编写Golang服务](chapter4/section1.md)
   * [section2](chapter4/section2.md)
   * [section3](chapter4/section3.md)
   * [section4](chapter4/section4.md)
