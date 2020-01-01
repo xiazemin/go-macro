@@ -1,28 +1,22 @@
 # go-micro依赖
 
-
-
 go-micro是基于 Go语言实现的插件化 RPC 微服务框架，与go-kit，kite等微服务框架相比，它具有易上手、部署简单、工具插件化等优点。
 
+名称    说明
 
+OS    macOS Mojave 10.14.6
 
-名称	说明
+Golang    go1.13 darwin/amd64
 
-OS	macOS Mojave 10.14.6
+Micro    micro version 1.11.3
 
-Golang	go1.13 darwin/amd64
-
-Micro	micro version 1.11.3
-
-G111MODULE	on
+G111MODULE    on
 
 安装 micro 工具包
 
 micro提供了一系列的工具来帮助我们更好的使用 go-micro。，如果没有安装 golang 请先安装 golang
 
 如果安装方式一出错，提示包找不到可以用安装方式二
-
-
 
 script
 
@@ -62,15 +56,11 @@ go build -o micro main.go
 
 sudo cp micro /usr/local/bin/
 
-
-
 \# 安装方式二
-
-
 
 cd $GOPATH/src/github.com/micro/
 
-git clone https://github.com/micro/micro.git
+git clone [https://github.com/micro/micro.git](https://github.com/micro/micro.git)
 
 cd $GOPATH/src/github.com/micro/micro
 
@@ -90,53 +80,11 @@ go get -u -v github.com/micro/go-micro
 
 官方地址
 
-
-
 script
-
-1
-
-2
-
-3
-
-4
-
-5
-
-6
-
-7
-
-8
-
-9
-
-10
-
-11
-
-12
-
-13
-
-14
-
-15
-
-16
-
-17
-
-18
-
-19
 
 \# 源码安装，下载最新版，目前是 v3.10.1
 
-
-
-wget https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz
+wget [https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz](https://github.com/protocolbuffers/protobuf/releases/download/v3.10.1/protobuf-all-3.10.1.tar.gz)
 
 tar zxvf protobuf-all-3.10.1.tar.gz
 
@@ -152,11 +100,9 @@ make install
 
 protoc -h
 
-
-
 \# 或者
 
-git clone https://github.com/google/protobuf
+git clone [https://github.com/google/protobuf](https://github.com/google/protobuf)
 
 cd protobuf
 
@@ -177,6 +123,4 @@ script
 1
 
 go get -u -v github.com/golang/protobuf/protoc-gen-go
-
-
 
