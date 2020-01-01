@@ -35,7 +35,7 @@
 * [API](chapter5.md)
   * [example](chapter5/section1.md)
   * [Web管理控制台](chapter5/section2.md)
-* [chapter6](chapter6.md)
+* [Proxy](chapter6.md)
   * [section1](chapter6/section1.md)
 * [chapter7](chapter7.md)
 * [chapter8](chapter8.md)
