@@ -259,34 +259,10 @@ Web处理器是，它是内置在服务发现中的HTTP反向代理服务，支�
 示例：
 
 ```
-curl 
--
-d 
-'service=go.micro.srv.greeter
-' \
-
--
-d 
-'method=Say.Hello
-' \
-
--
-d 
-'request={
-"name"
-:
-"Bob"
-}
-' \
-     http
-:
-/
-/
-localhost
-:
-8080
-/
-rpc
+curl -d 'service=go.micro.srv.greeter' \
+     -d 'method=Say.Hello' \
+     -d 'request={"name": "Bob"}' \
+     http://localhost:8080/rpc
 ```
 
 更多信息查看可运行的示例：[github.com/micro/examples/api](https://github.com/micro/examples/tree/master/api)
