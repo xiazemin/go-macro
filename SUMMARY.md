@@ -30,7 +30,7 @@
 * [ GRPC 网关](chapter4.md)
   * [编写Golang服务](chapter4/section1.md)
   * [编写Golang Function](chapter4/section2.md)
-  * [section3](chapter4/section3.md)
+  * [容错](chapter4/section3.md)
   * [section4](chapter4/section4.md)
 * [chapter5](chapter5.md)
   * [section1](chapter5/section1.md)
