@@ -41,7 +41,7 @@
 * [新建模板](chapter8.md)
 * [Go API 处理器](chapter9.md)
 * [放弃 go-micro 框架](chapter10.md)
-* [chapter11](chapter11.md)
+* [go-micro gateway](chapter11.md)
 * [chapter12](chapter12.md)
 * [chapter13](chapter13.md)
 * [chapter14](chapter14.md)
