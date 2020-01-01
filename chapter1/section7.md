@@ -12,8 +12,8 @@ go get -u -v github.com/micro/go-micro
 go get github.com/micro/protobuf/{proto,protoc-gen-go}
 
 #~/goLang/src/github.com/micro$ls
-#cli			mdns			protobuf
-#go-micro		micro			protoc-gen-micro
+#cli            mdns            protobuf
+#go-micro        micro            protoc-gen-micro
 
 consul agent -dev
 #==> Starting Consul agent...
@@ -35,13 +35,71 @@ tree
 #| |____hello.pb.go
 #| |____hello.proto
 #|____setup.sh
-
-
 ```
 
-# 
+```
+|____Clients
+| |____helloclient.go
+|____proto
+| |____hello.pb.go
+| |____hello.proto
+|____README
+|____services
+| |____hello.go
+|____setup.sh
+```
 
 # 2，自动动创建
+
+```
+1,-bash: micro: command not found
+原因,go get 后并没有编译,因此需要编译
+
+cd /Users/didi/goLang/src/github.com/micro/micro
+go build -o ~/goLang/bin/micro ./
+
+
+2,生成项目
+$micro new github.com/golang-study-day/go-micro/exp2/hello
+Creating service go.micro.srv.hello in /Users/didi/goLang/src/github.com/golang-study-day/go-micro/exp2/hello
+
+.
+├── main.go
+├── generate.go
+├── plugin.go
+├── handler
+│   └── hello.go
+├── subscriber
+│   └── hello.go
+├── proto/hello
+│   └── hello.proto
+├── Dockerfile
+├── Makefile
+└── README.md
+
+
+download protobuf for micro:
+
+brew install protobuf
+go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+go get -u github.com/micro/protoc-gen-micro
+
+compile the proto file hello.proto:
+
+cd /Users/didi/goLang/src/github.com/golang-study-day/go-micro/exp2/hello
+protoc --proto_path=.:$GOPATH/src --go_out=. --micro_out=. proto/hello/hello.proto
+
+
+3,生成代码
+cd /Users/didi/goLang/src/github.com/golang-study-day/go-micro/exp2/hello
+protoc --proto_path=.:$GOPATH/src --go_out=. --micro_out=. proto/hello/hello.proto
+
+|____proto
+| |____hello
+| | |____hello.pb.go
+| | |____hello.pb.micro.go
+
+```
 
 
 
