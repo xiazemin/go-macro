@@ -37,7 +37,7 @@
   * [Web管理控制台](chapter5/section2.md)
 * [Proxy](chapter6.md)
   * [micro cli](chapter6/section1.md)
-* [chapter7](chapter7.md)
+* [micro bot](chapter7.md)
 * [chapter8](chapter8.md)
 * [chapter9](chapter9.md)
 * [chapter10](chapter10.md)
