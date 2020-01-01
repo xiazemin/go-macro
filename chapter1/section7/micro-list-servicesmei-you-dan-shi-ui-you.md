@@ -12,13 +12,9 @@ micro --registry=consul list services
 
 现在文档是基于以前的版本
 
-
-
 但是仍然不行
 
 [http://localhost:8500/ui/\#/dc1/services](http://localhost:8500/ui/#/dc1/services)
-
-
 
 
 

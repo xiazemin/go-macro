@@ -11,7 +11,7 @@
   * [实践](chapter1/section7.md)
     * [etcd路径问题解决：govendor](chapter1/section7/etcdlu-jing-wen-ti-jie-jue-ff1a-govendor.md)
     * [micro list services没有但是ui有](chapter1/section7/micro-list-servicesmei-you-dan-shi-ui-you.md)
-* [chapter2](chapter2.md)
+* [go-plugins](chapter2.md)
   * [section1](chapter2/section1.md)
   * [section2](chapter2/section2.md)
   * [section3](chapter2/section3.md)
