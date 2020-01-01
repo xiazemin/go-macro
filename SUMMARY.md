@@ -18,7 +18,7 @@
   * [使用Docker安装](chapter2/section4.md)
   * [微服务](chapter2/section5.md)
   * [go-micro中使用consul](chapter2/section6.md)
-* [chapter3](chapter3.md)
+* [Go 服务注册--consul](chapter3.md)
   * [section1](chapter3/section1.md)
   * [section2](chapter3/section2.md)
   * [section3](chapter3/section3.md)
