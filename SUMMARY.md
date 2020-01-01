@@ -14,7 +14,7 @@
 * [go-plugins](chapter2.md)
   * [微服务管理工具](chapter2/section1.md)
   * [micro工具库](chapter2/section2.md)
-  * [section3](chapter2/section3.md)
+  * [Registry服务的注册和发现](chapter2/section3.md)
   * [section4](chapter2/section4.md)
   * [section5](chapter2/section5.md)
   * [section6](chapter2/section6.md)
