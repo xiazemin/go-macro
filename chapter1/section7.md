@@ -68,11 +68,11 @@ Creating service go.micro.srv.hello in /Users/didi/goLang/src/github.com/golang-
 ├── generate.go
 ├── plugin.go
 ├── handler
-│   └── hello.go
+│   └── hello.go
 ├── subscriber
-│   └── hello.go
+│   └── hello.go
 ├── proto/hello
-│   └── hello.proto
+│   └── hello.proto
 ├── Dockerfile
 ├── Makefile
 └── README.md
@@ -98,7 +98,26 @@ protoc --proto_path=.:$GOPATH/src --go_out=. --micro_out=. proto/hello/hello.pro
 | |____hello
 | | |____hello.pb.go
 | | |____hello.pb.micro.go
+```
 
+问题是新版磨人用etcd服务发现不是consul，会报下面错误
+
+```
+/usr/local/go/bin/go run /Users/didi/goLang/src/github.com/golang-study-day/go-micro/exp2/hello/main.go
+# github.com/micro/go-micro/transport/quic
+src/github.com/micro/go-micro/transport/quic/quic.go:121:3: unknown field 'IdleTimeout' in struct literal of type quic.Config
+# github.com/coreos/etcd/clientv3
+src/github.com/coreos/etcd/clientv3/auth.go:121:72: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.AuthEnable
+src/github.com/coreos/etcd/clientv3/auth.go:126:74: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.AuthDisable
+src/github.com/coreos/etcd/clientv3/auth.go:131:152: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserAdd
+src/github.com/coreos/etcd/clientv3/auth.go:136:144: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserAdd
+src/github.com/coreos/etcd/clientv3/auth.go:141:86: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserDelete
+src/github.com/coreos/etcd/clientv3/auth.go:146:122: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserChangePassword
+src/github.com/coreos/etcd/clientv3/auth.go:151:104: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserGrantRole
+src/github.com/coreos/etcd/clientv3/auth.go:156:80: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserGet
+src/github.com/coreos/etcd/clientv3/auth.go:161:72: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserList
+src/github.com/coreos/etcd/clientv3/auth.go:166:106: cannot use auth.callOpts (type []"github.com/coreos/etcd/vendor/google.golang.org/grpc".CallOption) as type []"go.etcd.io/etcd/vendor/google.golang.org/grpc".CallOption in argument to auth.remote.UserRevokeRole
+src/github.com/coreos/etcd/clientv3/auth.go:166:106: too many errors
 ```
 
 
