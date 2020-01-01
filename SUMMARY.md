@@ -32,7 +32,7 @@
   * [编写Golang Function](chapter4/section2.md)
   * [容错](chapter4/section3.md)
   * [Micro Toolkit](chapter4/section4.md)
-* [chapter5](chapter5.md)
+* [API](chapter5.md)
   * [section1](chapter5/section1.md)
   * [section2](chapter5/section2.md)
 * [chapter6](chapter6.md)
