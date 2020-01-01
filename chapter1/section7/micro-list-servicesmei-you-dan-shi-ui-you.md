@@ -14,3 +14,11 @@ micro --registry=consul list services
 
 
 
+但是仍然不行
+
+[http://localhost:8500/ui/\#/dc1/services](http://localhost:8500/ui/#/dc1/services)
+
+
+
+
+
