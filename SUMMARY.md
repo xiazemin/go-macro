@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [实现一个简单的微服务](chapter1.md)
   * [编写一个简单的Hello服务](chapter1/section1.md)
-  * [section2](chapter1/section2.md)
+  * [运行Hello服务](chapter1/section2.md)
   * [section3](chapter1/section3.md)
   * [section4](chapter1/section4.md)
   * [section5](chapter1/section5.md)
