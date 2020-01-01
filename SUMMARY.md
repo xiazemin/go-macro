@@ -13,7 +13,7 @@
     * [micro list services没有但是ui有](chapter1/section7/micro-list-servicesmei-you-dan-shi-ui-you.md)
 * [go-plugins](chapter2.md)
   * [微服务管理工具](chapter2/section1.md)
-  * [section2](chapter2/section2.md)
+  * [micro工具库](chapter2/section2.md)
   * [section3](chapter2/section3.md)
   * [section4](chapter2/section4.md)
   * [section5](chapter2/section5.md)
