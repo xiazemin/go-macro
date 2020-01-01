@@ -21,7 +21,7 @@
   * [go-micro中使用consul](chapter2/section6.md)
 * [Go 服务注册--consul](chapter3.md)
   * [micro的插件plugin](chapter3/section1.md)
-  * [section2](chapter3/section2.md)
+  * [什么是 Micro](chapter3/section2.md)
   * [section3](chapter3/section3.md)
   * [section4](chapter3/section4.md)
   * [section5](chapter3/section5.md)
