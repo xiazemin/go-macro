@@ -29,7 +29,7 @@
   * [特性](chapter3/section7.md)
 * [ GRPC 网关](chapter4.md)
   * [编写Golang服务](chapter4/section1.md)
-  * [section2](chapter4/section2.md)
+  * [编写Golang Function](chapter4/section2.md)
   * [section3](chapter4/section3.md)
   * [section4](chapter4/section4.md)
 * [chapter5](chapter5.md)
