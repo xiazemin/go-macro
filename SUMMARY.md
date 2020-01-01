@@ -8,7 +8,7 @@
   * [创建微服务](chapter1/section4.md)
   * [go-micro依赖](chapter1/section5.md)
   * [自动生成项目](chapter1/section6.md)
-  * [section7](chapter1/section7.md)
+  * [实践](chapter1/section7.md)
 * [chapter2](chapter2.md)
   * [section1](chapter2/section1.md)
   * [section2](chapter2/section2.md)
