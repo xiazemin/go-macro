@@ -16,7 +16,7 @@
   * [micro工具库](chapter2/section2.md)
   * [Registry服务的注册和发现](chapter2/section3.md)
   * [使用Docker安装](chapter2/section4.md)
-  * [section5](chapter2/section5.md)
+  * [微服务](chapter2/section5.md)
   * [section6](chapter2/section6.md)
 * [chapter3](chapter3.md)
   * [section1](chapter3/section1.md)
