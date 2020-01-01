@@ -6,5 +6,37 @@
 
 ![](/assets/impor2t.png)
 
+现在支持的输入方式
+
+Slack
+
+HipChat
+
+准备上车
+
+安装Micro
+
+安装Micro，已经安装跳过
+
+
+
+go get github.com/micro/micro
+
+
+
+slack
+
+SLACK\_TOKEN需要到Slack上去获取。
+
+
+
+micro bot --inputs=slack --slack\_token=SLACK\_TOKEN
+
+
+
+效果见图：
+
+
+
 
 
